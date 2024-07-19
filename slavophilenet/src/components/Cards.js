@@ -1,43 +1,26 @@
 import {FlashcardArray} from "react-quizlet-flashcard";
+import {useEffect, useState} from "react";
 
 export function Cards() {
-    const cards = [
-        {
-            id: 1,
-            frontHTML: <div>What is the capital of <u>Alaska</u>?</div>,
-            backHTML: <>Juneau</>,
-        },
-        {
-            id: 2,
-            frontHTML: <>What is the capital of California?</>,
-            backHTML: <>Sacramento</>,
-        },
-        {
-            id: 3,
-            frontHTML: <>What is the capital of New York?</>,
-            backHTML: <>Albany</>,
-        },
-        {
-            id: 4,
-            frontHTML: <>What is the capital of Florida?</>,
-            backHTML: <>Tallahassee</>,
-        },
-        {
-            id: 5,
-            frontHTML: <>What is the capital of Texas?</>,
-            backHTML: <>Austin</>,
-        },
-        {
-            id: 6,
-            frontHTML: <>What is the capital of New Mexico?</>,
-            backHTML: <>Santa Fe</>,
-        },
-        {
-            id: 7,
-            frontHTML: <>What is the capital of Arizona?</>,
-            backHTML: <>Phoenix</>,
-        },
-    ];
+    const [idiomData, setIdiomData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://russianidioms-6c824-default-rtdb.firebaseio.com/idioms.json') // replace with your Spring Boot application's endpoint
+            .then(response => response.json())
+            .then(data => setIdiomData(data))
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    console.log(idiomData);
+
+    const cards = idiomData.map(idiom => {
+        return {
+            id: idiom.id,
+            frontHTML: idiom.idiom,
+            backHTML: idiom.english,
+        };
+    });
+    console.log('cards:', cards);
     return (
         <div>
             <FlashcardArray
@@ -50,6 +33,9 @@ export function Cards() {
                     gridTemplateRows: "1fr 1fr 1fr",
                     gap: "10px",
                     padding: "10px",
+                    textAlign: "center",
+                    fontFamily: "Garamond, Arial, sans-serif",
+                    fontSize: "1.5em",
                 }}
                 backContentStyle={{
                     backgroundColor: "lightgoldenrodyellow",
@@ -59,6 +45,9 @@ export function Cards() {
                     gridTemplateRows: "1fr 1fr 1fr",
                     gap: "10px",
                     padding: "10px",
+                    textAlign: "center",
+                    fontFamily: "Garamond, Arial, sans-serif",
+                    fontSize: "1.5em",
                 }}
             />
         </div>

@@ -44,3 +44,10 @@ body {
   background-position: center;
   color: #998769;
 }
+
+.cardsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

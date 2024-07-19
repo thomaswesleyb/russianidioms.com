@@ -25,7 +25,7 @@ function App() {
                 />
                 <Route
                     path="/cards"
-                    element={<Cards/>}
+                    element={<div className={"cardsPage"}><Cards/></div>}
                 />
             </Routes>
         </Router>

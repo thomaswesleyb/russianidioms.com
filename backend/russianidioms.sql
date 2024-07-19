@@ -23,9 +23,17 @@ select pg_get_functiondef(to_regproc('gen_random_uuid'));
 alter table idioms
 add example text;
 insert into idioms values
-                       ('9f174174-bd51-4932-bb98-ed45759179d5', 'Дырявая голова', 'Head full of holes', CURRENT_DATE, current_user, 'Used to describe someone who is forgetful');
+                       ('b8362313-ed58-429a-bc1f-600180226bb1',
+                        'В тихом омуте черти водятся',
+                        'In the quietest waters live the demons',
+                        CURRENT_DATE,
+                        current_user,
+                        'Equivalent to English phrase "The devil lurks behind the cross." Used to talk about reserved people who are probably secretly cultists',
+                        ' Павел: "Эй, Иван, знаешь что-нибудь про Машу? Я думаю, что она мне нравится." Иван: "Да, знаю, что она редко говорит. Осторожно, Павел. В тихом омуте черти водятся."');
 select * from idioms;
 
 update idioms
 set example = '"Хочешь со мной работать в поле?" "Эх... Нас и здесь ниплохо кормят"'
 where idiom_stub = '9f174174-bd51-4932-bb98-ed45759179d5';
+
+ALTER TABLE idioms RENAME COLUMN russian to idiom

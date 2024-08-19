@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import './style/Header.css';
-import homeIcon from '../img/home-icon.png';
 import { useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 

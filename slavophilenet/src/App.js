@@ -1,5 +1,6 @@
 import './App.css';
 import {Cards} from "./components/Cards";
+import {Header} from './components/Header';
 import {Login} from "./Login";
 import {Main} from "./Main";
 import {Register} from "./Register";
@@ -10,6 +11,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 function App() {
     return (
         <Router>
+            <Header/>
             <Routes>
                 <Route
                     path="/"

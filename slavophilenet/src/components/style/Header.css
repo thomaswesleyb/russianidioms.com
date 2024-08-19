@@ -1,0 +1,54 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #231411;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homeButton {
+    text-decoration: none;
+}
+
+.homeIcon {
+    width: 25%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.homeButton:hover .homeIcon {
+    transform: scale(1.1);
+}
+
+.authButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.authButton {
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid #61dafb;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.authButton:hover {
+    background-color: #61dafb;
+    color: white;
+}
+
+.koschei {
+    margin-left: auto;
+    height: 2rem; /* Set a smaller height */
+    width: 2rem; /* Set a smaller width to maintain aspect ratio */
+    border-radius: 50%;
+    object-fit: cover;
+}

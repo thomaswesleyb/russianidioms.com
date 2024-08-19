@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 export function Main() {
     return (
         <div class={"titleCard"}>
+
             <h1>Russianidioms.com</h1>
             <p>Welcome to Russianidioms.com, the place to learn all about Russian idioms!</p>
             <nav>

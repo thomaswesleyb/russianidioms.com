@@ -18,10 +18,6 @@ function App() {
                     element={<Main/>}
                 />
                 <Route
-                    path="/googleefd99f16c88a80cc.html"
-                    element={<div>google-site-verification: googleefd99f16c88a80cc.html</div>}
-                />
-                <Route
                     path="/login"
                     element={<Login/>}
                 />

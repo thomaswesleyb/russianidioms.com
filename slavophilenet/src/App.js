@@ -20,6 +20,7 @@ function App() {
                 <Route
                     path="/googlee7b3b3b3b3b3b3b3.html"
                     element={<div>google-site-verification: googlee7b3b3b3b3b3b3b3.html</div>}
+                />
                 <Route
                     path="/login"
                     element={<Login/>}

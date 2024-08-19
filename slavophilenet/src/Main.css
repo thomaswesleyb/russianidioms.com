@@ -1,0 +1,73 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.main-box {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem; /* Add margin to separate the boxes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.main-box h1 {
+    margin-bottom: 1.5rem;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0.5rem 0;
+}
+
+.nav-list a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    color: var(--accent-color);
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}

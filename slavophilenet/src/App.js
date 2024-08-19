@@ -4,7 +4,8 @@ import {Header} from './components/Header';
 import {Login} from "./Login";
 import {Main} from "./Main";
 import {Register} from "./Register";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
+import {Sidebar} from "./components/Sidebar";
 
 
 
@@ -12,10 +13,11 @@ function App() {
     return (
         <Router>
             <Header/>
+            <Sidebar/>
             <Routes>
                 <Route
                     path="/"
-                    element={<Main/>}
+                    element={<Main />}
                 />
                 <Route
                     path="/login"

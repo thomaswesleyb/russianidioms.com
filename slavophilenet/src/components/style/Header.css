@@ -3,12 +3,25 @@ body.dark-mode {
     color: #ffffff;
 }
 
+/* slavophilenet/src/components/style/Header.css */
 .header {
-    background-color: #231411;
-    padding: .5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .header {
+    background-color: #333;
+    border-bottom-color: #444;
 }
 
 .homeButton {
@@ -16,8 +29,8 @@ body.dark-mode {
 }
 
 .homeIcon {
-    width: 25%;
-    height: auto;
+    width: 4rem; /* Set a fixed width */
+    height: 4rem; /* Set a fixed height */
     transition: transform 0.3s;
 }
 
@@ -45,10 +58,15 @@ body.dark-mode {
     color: white;
 }
 
-.koschei {
-    margin-left: auto;
-    height: 2rem; /* Set a smaller height */
-    width: 2rem; /* Set a smaller width to maintain aspect ratio */
-    border-radius: 50%;
-    object-fit: cover;
+.header h1 {
+    margin-left: 1rem;
+    flex-grow: 1; /* Allow the h1 to take up available space */
+    user-select: text; /* Make the text highlightable */
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+}
+
+.headerTitle {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
 }

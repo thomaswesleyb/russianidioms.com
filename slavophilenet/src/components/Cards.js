@@ -1,5 +1,6 @@
-import {FlashcardArray} from "react-quizlet-flashcard";
-import {useEffect, useState} from "react";
+import { FlashcardArray } from "react-quizlet-flashcard";
+import { useEffect, useState } from "react";
+import './style/Cards.css';
 
 export function Cards() {
     const [idiomData, setIdiomData] = useState([]);
@@ -11,8 +12,6 @@ export function Cards() {
             .catch(error => console.error('Error:', error));
     }, []);
 
-    console.log(idiomData);
-
     const cards = idiomData.map(idiom => {
         return {
             id: idiom.id,
@@ -20,14 +19,14 @@ export function Cards() {
             backHTML: idiom.english,
         };
     });
-    console.log('cards:', cards);
+
     return (
-        <div>
+        <div className="cardsContainer">
             <FlashcardArray
                 cards={cards}
                 frontContentStyle={{
-                    backgroundColor: "lightgoldenrodyellow",
-                    color: "black",
+                    backgroundColor: "var(--card-background)",
+                    color: "var(--card-text)",
                     display: "grid",
                     gridTemplateColumns: "1fr",
                     gridTemplateRows: "1fr 1fr 1fr",
@@ -38,8 +37,8 @@ export function Cards() {
                     fontSize: "1.5em",
                 }}
                 backContentStyle={{
-                    backgroundColor: "lightgoldenrodyellow",
-                    color: "black",
+                    backgroundColor: "var(--card-background)",
+                    color: "var(--card-text)",
                     display: "grid",
                     gridTemplateColumns: "1fr",
                     gridTemplateRows: "1fr 1fr 1fr",

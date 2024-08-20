@@ -6,7 +6,7 @@ export function Cards() {
     const [idiomData, setIdiomData] = useState([]);
 
     useEffect(() => {
-        fetch('https://russianidioms-6c824-default-rtdb.firebaseio.com/idioms.json') // replace with your Spring Boot application's endpoint
+        fetch('https://russianidioms-6c824-default-rtdb.firebaseio.com/idioms.json')
             .then(response => response.json())
             .then(data => setIdiomData(data))
             .catch(error => console.error('Error:', error));

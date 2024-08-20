@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import './style/Header.css';
 import { useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import {useAuth0} from "@auth0/auth0-react";
 
 export function Header() {
     const [darkMode, setDarkMode] = useState(false);
+    const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -17,8 +19,21 @@ export function Header() {
                 <h1>Russianidioms.com</h1>
             </Link>
             <div className="authButtons">
-                <Link to="/login" className="authButton">Login</Link>
-                <Link to="/register" className="authButton">Register</Link>
+                {
+                    !isLoading && !user && (
+                        <button onClick={loginWithRedirect} className="authButton">Login</button>
+                    )
+                }
+                {
+                    !isLoading && user && (
+                        <button onClick={logout} className="authButton">Logout</button>
+                    )
+                }
+                {
+                    !isLoading && user && (
+                        <Link to="/profile" className="authButton">Profile</Link>
+                    )
+                }
                 <DarkModeSwitch
                     style={{ marginRight: '.5rem' }}
                     checked={darkMode}

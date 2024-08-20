@@ -71,3 +71,10 @@
 .ml-2 {
     margin-left: 0.5rem;
 }
+
+.copy {
+    font-size: 0.8rem;
+    color: var(--light-text-color);
+    width: 1rem;
+    cursor: pointer;
+}

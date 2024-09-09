@@ -1,24 +1,16 @@
 import { FlashcardArray } from "react-quizlet-flashcard";
 import { useEffect, useState } from "react";
-import './style/Cards.css';
+import '../style/Cards.css';
 
 export function Cards() {
     const [idiomData, setIdiomData] = useState([]);
-    const accessToken = ''
 
     useEffect(() => {
-        fetch('https://firestore.googleapis.com/v1/projects/russianidioms-6c824/databases/(default)/documents/idioms', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
-            }})
+        fetch('/.netlify/functions/idiom-requests')
             .then(response => response.json())
-            .then(data => setIdiomData(data.documents.map(doc => doc.fields)))
+            .then(data => setIdiomData(data))
             .catch(error => console.error('Error:', error));
     }, []);
-
-    console.log(idiomData);
 
     const cards = idiomData.map(idiom => {
         return {

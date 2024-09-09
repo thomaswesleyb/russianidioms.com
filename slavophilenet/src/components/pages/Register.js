@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import './Register.css';
-import BackButton from "./components/BackButton";
+import './css/Register.css';
+import BackButton from "../BackButton";
 
 export function Register() {
 

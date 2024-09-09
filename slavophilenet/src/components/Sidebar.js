@@ -1,5 +1,6 @@
 import React from 'react';
 import './style/Sidebar.css';
+import {Link} from "react-router-dom";
 
 export function Sidebar() {
     return (
@@ -12,6 +13,7 @@ export function Sidebar() {
                 <li><a href="#section5">External Resources</a></li>
                 <li><a href="#section6">Grammar</a></li>
                 <li><a href="#section7">Vocabulary</a></li>
+                <li><Link to="/new-idiom">Submit Idiom</Link></li>
             </ul>
         </div>
     );

@@ -1,14 +1,15 @@
 import './App.css';
-import { Cards } from "./components/Cards";
+import { Cards } from "./components/pages/Cards";
 import { Header } from './components/Header';
-import { Login } from "./Login";
-import { Main } from "./Main";
-import { Register } from "./Register";
+import { Login } from "./components/pages/Login";
+import { Main } from "./components/pages/Main";
+import { Register } from "./components/pages/Register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Sidebar } from "./components/Sidebar";
 import { Footer } from "./components/Footer";
 import Auth0ProviderWithHistory from "./auth0Provider";
-import Profile from "./Profile";
+import Profile from "./components/pages/Profile";
+import AddIdiom from "./components/pages/AddIdiom";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/cards" element={<div className={"cardsPage"}><Cards /></div>} />
                     <Route path="/profile" element={<div className={"profilePage"}><Profile /></div>} />
+                    <Route path="/new-idiom" element={<div className={"newIdiomPage"}><AddIdiom /></div>} />
                 </Routes>
                 <Footer />
             </Auth0ProviderWithHistory>

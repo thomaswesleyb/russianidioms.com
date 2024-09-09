@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import './Login.css';
+import './css/Login.css';
 
 export function Login() {
     return (

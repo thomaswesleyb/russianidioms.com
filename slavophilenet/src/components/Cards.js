@@ -4,19 +4,26 @@ import './style/Cards.css';
 
 export function Cards() {
     const [idiomData, setIdiomData] = useState([]);
+    const accessToken = ''
 
     useEffect(() => {
-        fetch('https://russianidioms-6c824-default-rtdb.firebaseio.com/idioms.json')
+        fetch('https://firestore.googleapis.com/v1/projects/russianidioms-6c824/databases/(default)/documents/idioms', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            }})
             .then(response => response.json())
-            .then(data => setIdiomData(data))
+            .then(data => setIdiomData(data.documents.map(doc => doc.fields)))
             .catch(error => console.error('Error:', error));
     }, []);
 
+    console.log(idiomData);
+
     const cards = idiomData.map(idiom => {
         return {
-            id: idiom.id,
-            frontHTML: idiom.idiom,
-            backHTML: idiom.english,
+            frontHTML: idiom.idiom.stringValue,
+            backHTML: idiom.english.stringValue,
         };
     });
 

@@ -6,7 +6,7 @@ import {quantum} from "ldrs";
 const LoginRequired = ({ children }) => {
     const { user, isLoading } = useAuth0();
     const [loading, setLoading] = useState(true);
-    quantum.register()
+    quantum.register();
 
     useEffect(() => {
         if (!isLoading) {

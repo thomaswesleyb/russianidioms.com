@@ -26,7 +26,9 @@ export function Header() {
                 }
                 {
                     !isLoading && user && (
-                        <button onClick={logout} className="authButton">Logout</button>
+                        <button className= "authButton" onClick={() => logout({logoutParams: {returnTo: window.location.origin}})}>
+                            Log Out
+                        </button>
                     )
                 }
                 {

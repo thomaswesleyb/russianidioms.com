@@ -4,6 +4,7 @@ import {Button} from "react-bootstrap";
 import './style/IdiomForm.css';
 
 class IdiomForm extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -39,16 +40,18 @@ class IdiomForm extends React.Component {
                         alert('One or more fields are empty');
                     }
                     return;
+                } else {
+                    alert('New idioms submitted for review');
                 }
-
-                alert('New idioms submitted for review');
                 const data = await response.json();
                 console.log(data);
             } catch (error) {
+                alert('An error occurred. Please try again later.');
                 console.error('Error:', error);
             }
         }
         postData();
+        alert('New idioms submitted for review');
         this.setState({rows: [{id: 1, idiom: '', translation: '', definition: '', example: ''}]});
     }
 
@@ -59,36 +62,49 @@ class IdiomForm extends React.Component {
         });
     }
 
+    onDeleteBtnClick = () => {
+        if (this.state.rows.length !== 1) {
+            const rows = this.state.rows.filter(row => row.id !== this.state.rows.length);
+            this.setState({rows});
+        } else {
+            alert('Cannot delete the only row');
+        }
+    };
+
+    onResetBtnClick = () => {
+        this.setState({rows: [{id: 1, idiom: '', translation: '', definition: '', example: ''}]});
+    };
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <table className="profile-table">
-                    <thead>
-                    <tr>
-                        <th>Idiom</th>
-                        <th>Translation</th>
-                        <th>Definition</th>
-                        <th>Example</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.rows.map((row) => (
-                        <IdiomRow
-                            key={row.id}
-                            id={row.id}
-                            data={row}
-                            onRowChange={this.handleRowChange}
-                        />
-                    ))}
-                    <tr>
-                        <td>
-                            <Button className="button-spacing" onClick={this.onAddBtnClick}>Add</Button>
-                            <Button onClick={this.handleSubmit}>Submit</Button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </form>
+            <div className="idiom-form-container">
+                <form onSubmit={this.handleSubmit}>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Idiom</th>
+                            <th>Translation</th>
+                            <th>Definition</th>
+                            <th>Example</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.rows.map((row) => (
+                            <IdiomRow
+                                key={row.id}
+                                id={row.id}
+                                data={row}
+                                onRowChange={this.handleRowChange}
+                            />
+                        ))}
+                        </tbody>
+                    </table> &nbsp;
+                    <Button className="button-spacing" onClick={this.onAddBtnClick}>Add</Button> &nbsp;
+                    <Button className="button-spacing" onClick={this.onDeleteBtnClick}>Delete</Button> &nbsp;
+                    <Button className="button-spacing" type="reset" onClick={this.onResetBtnClick}>Reset</Button> &nbsp;
+                    <Button type="submit" onClick={this.handleSubmit}>Submit</Button>
+                </form>
+            </div>
         );
     }
 }

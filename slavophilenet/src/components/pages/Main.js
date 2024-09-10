@@ -2,31 +2,21 @@ import React, { useEffect, useState } from "react";
 import Placeholder from 'react-bootstrap/Placeholder';
 import './css/Main.css';
 import { useAuth0 } from "@auth0/auth0-react";
+import IdiomFavoriteButton from "../IdiomFavoriteButton";
+import {useIdioms} from "../IdiomStore";
 
 export function Main() {
-    const [randomIdiom, setRandomIdiom] = useState({ idiom: '', english: '' });
     const [loading, setLoading] = useState(true);
+    const [randomIdiom, setRandomIdiom] = useState({ idiom: '', english: '' });
+    const idioms = useIdioms();
     const { user } = useAuth0();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('/.netlify/functions/firestore-handler');
-                const data = await response.json();
-
-                if (data.length > 0) {
-                    const idiom = data[Math.floor(Math.random() * data.length)];
-                    setRandomIdiom({ idiom: idiom?.data?.idiom, english: idiom?.data?.english });
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
+        console.log(idioms);
+        const idiom = idioms[Math.floor(Math.random() * idioms.length)];
+        setRandomIdiom({ idiom: idiom?.idiom, english: idiom?.english, id: idiom?.id });
+        setLoading(false);
+    }, [idioms]);
 
     return (
         <div className="main-container">
@@ -38,8 +28,11 @@ export function Main() {
             </div>
             <div style={{ padding: '1rem' }}></div>
             <div className={"main-box"}>
-                <h2>Random Idiom</h2>
-                {loading || !randomIdiom ? (
+                <div>
+                    <h2>Random Idiom</h2>
+                    {user && !loading ? <IdiomFavoriteButton userId={user.sub} idiomId={randomIdiom?.id} /> : null}
+                </div>
+                {loading || !randomIdiom?.idiom || !randomIdiom?.english ? (
                     <Placeholder as="p" animation="glow">
                         <Placeholder xs={6} />
                         <Placeholder xs={12} />

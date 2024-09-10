@@ -58,6 +58,8 @@ This repository contains the source code for russianidioms.com, a web app that s
 1. Open your browser and navigate to `http://localhost:3000`.
 2. Use the login button to authenticate.
 3. Browse and search for Russian idioms.
+4. Add any idioms to your favorites.
+5. Submit suggestions for new idioms.
 4. Access additional resources for learning Russian.
 
 ## Features
@@ -72,7 +74,7 @@ This repository contains the source code for russianidioms.com, a web app that s
 
 - **Frontend**: React, Bootstrap, CSS
 - **Backend**: Java, Spring Boot
-- **Database**: SQL
+- **Database**: Currently uses Firebase, but can be configured to use any SQL database
 - **Authentication**: Auth0
 
 ## Contributing
@@ -91,4 +93,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any questions or feedback, please contact:
-- **Thomas Wesley**: [thomaswesleyb@example.com](mailto:thomaswesleyb@example.com)
+- **Thomas Wesley**: [twesleybailey@gmail.com](mailto:twesleybailey@gmail.com)

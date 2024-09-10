@@ -10,20 +10,32 @@ class IdiomRow extends React.Component {
         return (
             <tr>
                 <td>
-                    <IdiomField value={this.props.data.idiom}
-                                onChange={(value) => this.handleFieldChange('idiom', value)}/>
+                    <IdiomField
+                        value={this.props.data.idiom}
+                        onChange={(value) => this.handleFieldChange('idiom', value)}
+                        required={true}
+                    />
                 </td>
                 <td>
-                    <IdiomField value={this.props.data.translation}
-                                onChange={(value) => this.handleFieldChange('translation', value)}/>
+                    <IdiomField
+                        value={this.props.data.translation}
+                        onChange={(value) => this.handleFieldChange('translation', value)}
+                        required={true}
+                    />
                 </td>
                 <td>
-                    <IdiomField value={this.props.data.definition}
-                                onChange={(value) => this.handleFieldChange('definition', value)}/>
+                    <IdiomField
+                        value={this.props.data.definition}
+                        onChange={(value) => this.handleFieldChange('definition', value)}
+                        required={true}
+                    />
                 </td>
                 <td>
-                    <IdiomField value={this.props.data.example}
-                                onChange={(value) => this.handleFieldChange('example', value)}/>
+                    <IdiomField
+                        value={this.props.data.example}
+                        onChange={(value) => this.handleFieldChange('example', value)}
+                        required={false}
+                    />
                 </td>
             </tr>
         );

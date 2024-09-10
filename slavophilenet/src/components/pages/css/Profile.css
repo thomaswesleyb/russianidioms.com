@@ -28,3 +28,17 @@
     width: 100px;
     height: 100px;
 }
+
+.my-idioms-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.my-idioms-button:hover {
+    background-color: #0056b3;
+}

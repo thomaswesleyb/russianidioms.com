@@ -1,10 +1,16 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
 import './css/Profile.css';
 
 const Profile = () => {
     const { user } = useAuth0();
     const { name, picture, email } = user;
+    const navigate = useNavigate();  // useNavigate hook replaces useHistory
+
+    const goToMyIdioms = () => {
+        navigate('/my-idioms');  // use navigate instead of history.push
+    };
 
     return (
         <div className="profile-table-container">
@@ -24,6 +30,9 @@ const Profile = () => {
                 </tr>
                 </tbody>
             </table>
+            <button onClick={goToMyIdioms} className="my-idioms-button">
+                Go to My Idioms
+            </button>
         </div>
     );
 };

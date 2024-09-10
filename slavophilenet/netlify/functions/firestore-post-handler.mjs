@@ -6,26 +6,20 @@ export default async (req, context) => {
         console.log("data before: ", data);
 
         // Data processing to remove empty fields
-        for (const field in data) {
-            if (data[field] === '') {
+        Object.entries(data).forEach(([field, value]) => {
+            if (value === '') {
                 delete data[field];
-            } else if (Array.isArray(data[field]) && data[field].length > 0) {
-                for (const key in data[field]) {
-                    console.log("data[field][key]: ", data[field][key]);
-                    if (data[field][key] === '') {
-                        delete data[field];
-                        break;
-                    }
-                    for (const subkey in data[field][key]) {
-                        console.log("data[field][key][subkey]: ", data[field][key][subkey]);
-                        if (data[field][key][subkey] === '') {
-                            delete data[field];
-                            break;
-                        }
-                    }
+            } else if (Array.isArray(value) && value.length > 0) {
+                data[field] = value.filter(item => {
+                    if (item === '') return false;
+                    return Object.values(item).every(subValue => subValue !== '');
+                });
+                if (data[field].length === 0) {
+                    delete data[field];
                 }
             }
-        }
+        });
+
         if (Object.keys(data).length <= 1) {
             return new Response(JSON.stringify({error: "No data to add"}), {
                 status: 400,
@@ -34,7 +28,6 @@ export default async (req, context) => {
                 }
             });
         }
-        console.log("data after: ", data);
 
         const transformedData = data.rows.map(row => {
             return {
@@ -49,9 +42,11 @@ export default async (req, context) => {
         });
         console.log("transformedData: ", transformedData);
 
-        const docRef = await db.collection("idioms").add(transformedData[0]);
+        for (const idiom of transformedData) {
+            await db.collection('idioms').add(idiom);
+        }
 
-        return new Response(JSON.stringify({ id: docRef.id }), {
+        return new Response(JSON.stringify({ message: "Document added to Firestore" }), {
             status: 201,
             headers: {
                 'Content-Type': 'application/json'

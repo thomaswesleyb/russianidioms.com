@@ -56,3 +56,14 @@
     width: 100px;
     height: 100px;
 }
+
+.floating-box {
+    position: relative;
+    padding: 20px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px; /* Adjust as needed */
+    margin: 20px auto; /* Center horizontally */
+}

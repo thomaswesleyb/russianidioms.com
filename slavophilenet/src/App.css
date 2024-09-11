@@ -40,9 +40,9 @@
 }
 
 :root {
-  --primary-color: #8B0000; /* Dark Red */
+  --primary-color: #8B0000FF; /* Dark Red */
   --secondary-color: #FFD700; /* Gold */
-  --accent-color: #006400; /* Dark Green */
+  --accent-color: #7D0000FF; /* Darker Red */
   --background-color: #F5F5DC; /* Beige */
   --text-color: #2F4F4F; /* Dark Slate Gray */
   --heading-font: 'Roboto Slab', serif;

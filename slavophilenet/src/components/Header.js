@@ -76,12 +76,6 @@ export function Header() {
                         <Link to="/profile" className="authButton">Profile</Link>
                     )
                 }
-                <DarkModeSwitch
-                    style={{ marginRight: '.5rem' }}
-                    checked={darkMode}
-                    onChange={toggleDarkMode}
-                    size={40}
-                />
             </div>
         </header>
     );

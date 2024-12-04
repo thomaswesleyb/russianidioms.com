@@ -34,10 +34,6 @@ export function Header() {
     };
 
     useEffect(() => {
-        console.log("user: ", user);
-        console.log("user.sub: ", user?.sub);
-        console.log("user.name: ", user?.name);
-        console.log("user.email: ", user?.email);
         if (user) {
             initializeUser(user.sub, user.name, user.email);
         }

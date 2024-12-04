@@ -4,9 +4,6 @@ export default async (req, context) => {
     try {
         const data = await req.json();
         const { user_id, idiom_id } = data;
-        console.log('data:', data);
-        console.log('user_id:', user_id);
-        console.log('idiom_id:', idiom_id);
 
         // Reference the user's document using their Auth0 user ID
         const userDocRef = db.collection('users').doc(user_id);

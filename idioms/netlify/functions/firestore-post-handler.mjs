@@ -3,7 +3,6 @@ import db from '../../firestore.js';
 export default async (req, context) => {
     try {
         const data = await req.json();
-        console.log("data before: ", data);
 
         // Data processing to remove empty fields
         Object.entries(data).forEach(([field, value]) => {
@@ -40,7 +39,6 @@ export default async (req, context) => {
                 createdAt: new Date()
             };
         });
-        console.log("transformedData: ", transformedData);
 
         for (const idiom of transformedData) {
             await db.collection('idioms').add(idiom);

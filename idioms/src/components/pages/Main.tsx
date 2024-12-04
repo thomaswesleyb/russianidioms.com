@@ -15,7 +15,6 @@ export function Main() {
     const { user } = useAuth0();
 
     useEffect(() => {
-        console.log(idioms);
         const idiom = idioms[Math.floor(Math.random() * idioms.length)];
         setRandomIdiom({ idiom: idiom?.idiom, english: idiom?.english, id: idiom?.id });
         setLoading(false);

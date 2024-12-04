@@ -7,7 +7,7 @@ import IdiomsTable from "../IdiomsTable";
 const MyIdioms = () => {
     const { user } = useAuth0();
     const [savedIdioms, setSavedIdioms] = useState([]);
-    const idioms = useIdioms();// @ts-ignore
+    const idioms = useIdioms().idioms;// @ts-ignore
     const submittedIdioms = idioms.filter(idiom => idiom.submittedBy === user.name);
 
     useEffect(() => {

@@ -7,8 +7,8 @@ interface Auth0ProviderWithHistoryProps {
 }
 
 const Auth0ProviderWithHistory: React.FC<Auth0ProviderWithHistoryProps> = ({ children }) => {
-    const domain = process.env.REACT_APP_AUTH0_DOMAIN as string;
-    const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID as string;
+    const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN;
+    const clientId = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID;
 
     const navigate = useNavigate();
 
@@ -20,6 +20,9 @@ const Auth0ProviderWithHistory: React.FC<Auth0ProviderWithHistoryProps> = ({ chi
         domain,
         clientId,
         onRedirectCallback,
+        authorizationParams: {
+            redirect_uri: window.location.origin
+        }
     };
 
     return (

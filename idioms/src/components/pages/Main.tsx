@@ -9,9 +9,9 @@ import copyIcon from "../../img/copy.png";
 export function Main() {
     const [loading, setLoading] = useState(true);
     const [randomIdiom, setRandomIdiom] = useState({ idiom: '', english: '',
-        id: undefined
+        id: ''
     });
-    const idioms = useIdioms();
+    const idioms = useIdioms().idioms;
     const { user } = useAuth0();
 
     useEffect(() => {

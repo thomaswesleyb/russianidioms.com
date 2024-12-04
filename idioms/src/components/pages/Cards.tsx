@@ -1,11 +1,7 @@
 import { FlashcardArray } from "react-quizlet-flashcard";
 import { useEffect, useState, CSSProperties } from "react";
 import '../style/Cards.css';
-
-interface Idiom {
-    idiom: string;
-    english: string;
-}
+import {Idiom} from "../../types/types.ts";
 
 export function Cards() {
     const [idiomData, setIdiomData] = useState<Idiom[]>([]);
@@ -35,6 +31,7 @@ export function Cards() {
                 }
                 const data: Idiom[] = await response.json();
                 setIdiomData(data);
+                console.log('Idiom data:', data);
             } catch (error) {
                 console.error('Error:', error);
             } finally {
@@ -47,8 +44,8 @@ export function Cards() {
 
     const cards = idiomData.map((idiom, index) => ({
         id: index,
-        frontHTML: idiom.idiom,
-        backHTML: idiom.english,
+        frontHTML: idiom.data.idiom,
+        backHTML: idiom.data.english,
     }));
 
     if (loading) {

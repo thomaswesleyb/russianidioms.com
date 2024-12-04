@@ -6,7 +6,7 @@ import { useIdioms } from "../IdiomStore";
 import IdiomsTable from "../IdiomsTable";
 
 const IdiomsDatabase: React.FC = () => {
-    const idioms = useIdioms();
+    const idioms = useIdioms().idioms;
     const navigate = useNavigate();
     const { user } = useAuth0();
 

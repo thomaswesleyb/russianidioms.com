@@ -7,7 +7,6 @@
     height: 100%;
     background-color: var(--primary-color);
     overflow-x: hidden;
-    transition: 0.5s;
     padding-top: 70px;
 }
 

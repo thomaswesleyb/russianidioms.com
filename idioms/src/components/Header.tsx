@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import './style/Header.css';
 import { useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./LoginButton.tsx";
 
 export function Header() {
-    const { loginWithRedirect, logout, user, isLoading } = useAuth0();
+    const { user, isLoading } = useAuth0();
 
     const initializeUser = async (userId: string | undefined, name: string | undefined, email: string | undefined) => {
         try {
@@ -32,10 +33,6 @@ export function Header() {
         }
     };
 
-    const loginUser = async () => {
-        await loginWithRedirect();
-    }
-
     useEffect(() => {
         console.log("user: ", user);
         console.log("user.sub: ", user?.sub);
@@ -54,14 +51,12 @@ export function Header() {
             <div className="authButtons">
                 {
                     !isLoading && !user && (
-                        <button onClick={loginUser} className="authButton">Login</button>
+                        <LoginButton />
                     )
                 }
                 {
                     !isLoading && user && (
-                        <button className="authButton" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                            Log Out
-                        </button>
+                        <LoginButton useLogout={true}/>
                     )
                 }
                 {

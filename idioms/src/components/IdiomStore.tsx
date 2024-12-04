@@ -1,13 +1,6 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
+import {Idiom} from "../types/types.ts";
 
-interface Idiom {
-    id: undefined;
-    idiom: string;
-    english: string;
-    example: string;
-    submittedBy?: string;
-    approvalStatus?: string;
-}
 
 interface IdiomProviderProps {
     children: ReactNode;

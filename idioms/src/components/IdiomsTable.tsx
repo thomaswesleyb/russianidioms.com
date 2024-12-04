@@ -1,12 +1,5 @@
 import React from "react";
-
-interface Idiom {
-    idiom: string;
-    english: string;
-    example: string;
-    submittedBy?: string;
-    approvalStatus?: string;
-}
+import {Idiom} from "../types/types.ts";
 
 interface IdiomsTableProps {
     idioms: Idiom[];

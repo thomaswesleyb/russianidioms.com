@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './style/Header.css';
 import { useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "./LoginButton.tsx";
+import LoginButton from "./buttons/LoginButton.tsx";
 
 export function Header() {
     const { user, isLoading } = useAuth0();

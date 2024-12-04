@@ -21,9 +21,21 @@ const MyIdioms = () => {
                     // @ts-ignore
                     body: JSON.stringify({ user_id: user.sub })
                 });
-                const data = await response.json();// @ts-ignore
-                console.log('user id:', user.sub);
-                setSavedIdioms(data.idioms || []);
+                const userData = await response.json();// @ts-ignore
+                try {
+                    const response = await fetch('/.netlify/functions/firestore-get-idioms', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ idiom_ids: userData.idioms || [] })
+                    });
+                    let idiomData = await response.json();
+                    idiomData = idiomData.filter((idiom: { id: string; }) => userData.idioms.includes(idiom.id));
+                    setSavedIdioms(idiomData || []);
+                } catch (error) {
+                    console.error('Error fetching saved idioms:', error);
+                }
             } catch (error) {
                 console.error('Error fetching saved idioms:', error);
             }

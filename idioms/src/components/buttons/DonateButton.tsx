@@ -1,5 +1,5 @@
-import donateButtonImage from '../img/donate.png';
-import './style/DonateButton.css';
+import donateButtonImage from '../../img/donate.png';
+import '../style/DonateButton.css';
 
 const DonateButton = () => {
     return (

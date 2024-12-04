@@ -1,0 +1,44 @@
+.profile-table-container {
+    margin-top: 60px; /* Adjust based on header height */
+    margin-left: 250px; /* Adjust based on sidebar width */
+    padding: 20px;
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.profile-table th, .profile-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+}
+
+.profile-table th {
+    background-color: var(--dark-background-color);
+    color: var(--light-text-color);
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.my-idioms-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.my-idioms-button:hover {
+    background-color: var(--accent-color);
+}

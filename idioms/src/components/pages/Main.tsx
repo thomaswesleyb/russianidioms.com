@@ -15,7 +15,8 @@ export function Main() {
     const { user } = useAuth0();
 
     useEffect(() => {
-        const idiom = idioms[Math.floor(Math.random() * idioms.length)];
+        const approvedIdioms = idioms.filter(idiom => idiom.approvalStatus === 'approved');
+        const idiom = approvedIdioms[Math.floor(Math.random() * approvedIdioms.length)];
         setRandomIdiom({ idiom: idiom?.idiom, english: idiom?.english, id: idiom?.id });
         setLoading(false);
     }, [idioms]);

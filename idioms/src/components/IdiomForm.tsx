@@ -32,7 +32,14 @@ class IdiomForm extends Component<IdiomFormProps, IdiomFormState> {
 
     handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const payload = { rows: this.state.rows, submittedBy: this.props.user.name };
+        const payload = {
+            rows: this.state.rows.map(row => ({
+                ...row,
+                example: row.example || "N/A"
+            })),
+            submittedBy: this.props.user.name
+        };
+        console.log(payload);
         const postData = async () => {
             try {
                 const response = await fetch('/.netlify/functions/firestore-post-handler', {

@@ -3,9 +3,11 @@ import db from '../../firestore.js';
 export default async (req, context) => {
     try {
         const data = await req.json();
-
         // Data processing to remove empty fields
         Object.entries(data).forEach(([field, value]) => {
+            if (field === 'example') {
+                return;
+            }
             if (value === '') {
                 delete data[field];
             } else if (Array.isArray(value) && value.length > 0) {
@@ -33,7 +35,7 @@ export default async (req, context) => {
                 idiom: row.idiom,
                 english: row.translation,
                 definition: row.definition,
-                example: row.example,
+                example: row.example || "",
                 submittedBy: data.submittedBy,
                 approvalStatus: "pending",
                 createdAt: new Date()

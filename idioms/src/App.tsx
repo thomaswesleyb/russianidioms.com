@@ -14,7 +14,7 @@ import LoginRequired from "./components/pages/LoginRequired";
 import MyIdioms from "./components/pages/MyIdioms";
 import { IdiomProvider, useIdioms } from "./components/IdiomStore";
 import IdiomsDatabase from "./components/pages/IdiomsDatabase";
-import DonateButton from "./components/DonateButton.tsx";
+import DonateButton from "./components/buttons/DonateButton.tsx";
 
 const AppContent = () => {
     const { loading } = useIdioms();

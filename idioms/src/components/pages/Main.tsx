@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Placeholder from 'react-bootstrap/Placeholder';
 import './css/Main.css';
 import { useAuth0 } from "@auth0/auth0-react";
-import IdiomFavoriteButton from "../IdiomFavoriteButton";
+import IdiomFavoriteButton from "../buttons/IdiomFavoriteButton.tsx";
 import {useIdioms} from "../IdiomStore";
 import copyIcon from "../../img/copy.png";
 

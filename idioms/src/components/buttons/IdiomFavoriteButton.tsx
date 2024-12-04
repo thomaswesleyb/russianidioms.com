@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import './style/IdiomFavoriteButton.css';
+import '../style/IdiomFavoriteButton.css';
 
 interface IdiomFavoriteButtonProps {
     userId: string | undefined;

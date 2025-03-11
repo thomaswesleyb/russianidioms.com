@@ -1,6 +1,6 @@
 # Russianidioms.com
 
-This repository contains the source code for russianidioms.com, a web app that serves as a database for Russian idioms with English translations, and provides a space to store resources for learning Russian.
+This repository contains the source code for russianidioms.com, a web app that serves as a database for Russian idioms with English translations and provides a space to store resources for learning Russian.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -16,8 +16,6 @@ This repository contains the source code for russianidioms.com, a web app that s
 ### Prerequisites
 - Node.js
 - npm
-- Java
-- Maven
 
 ### Steps
 1. Clone the repository:
@@ -26,41 +24,24 @@ This repository contains the source code for russianidioms.com, a web app that s
     cd russianidioms.com
     ```
 
-2. Install the frontend dependencies:
+2. Install dependencies:
     ```bash
-    cd slavophilenet
     npm install
     ```
 
-3. Install the backend dependencies:
+3. Start the development server:
     ```bash
-    cd ../backend
-    mvn install
-    ```
-
-4. Set up the database:
-    - Ensure you have a running SQL database.
-    - Update the database configuration in `application.properties`.
-
-5. Start the backend server:
-    ```bash
-    mvn spring-boot:run
-    ```
-
-6. Start the frontend server:
-    ```bash
-    cd ../slavophilenet
-    npm start
+    npm run dev
     ```
 
 ## Usage
 
-1. Open your browser and navigate to `http://localhost:3000`.
+1. Open your browser and navigate to the provided Vite development server URL.
 2. Use the login button to authenticate.
 3. Browse and search for Russian idioms.
 4. Add any idioms to your favorites.
 5. Submit suggestions for new idioms.
-4. Access additional resources for learning Russian.
+6. Access additional resources for learning Russian.
 
 ## Features
 
@@ -72,9 +53,8 @@ This repository contains the source code for russianidioms.com, a web app that s
 
 ## Technologies Used
 
-- **Frontend**: React, Bootstrap, CSS
-- **Backend**: Java, Spring Boot
-- **Database**: Currently uses Firebase, but can be configured to use any SQL database
+- **Frontend**: TypeScript, React, Vite, CSS
+- **Backend**: Firebase
 - **Authentication**: Auth0
 
 ## Contributing
@@ -94,3 +74,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any questions or feedback, please contact:
 - **Thomas Wesley**: [twesleybailey@gmail.com](mailto:twesleybailey@gmail.com)
+

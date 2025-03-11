@@ -1,6 +1,6 @@
 # Russianidioms.com
 
-This repository contains the source code for russianidioms.com, a web app that serves as a database for Russian idioms with English translations and provides a space to store resources for learning Russian.
+This repository contains the source code for [russianidioms.com](https://www.russianidioms.com/), a web app that serves as a database for Russian idioms with English translations and provides a space to store resources for learning Russian.
 
 ## Table of Contents
 - [Installation](#installation)
